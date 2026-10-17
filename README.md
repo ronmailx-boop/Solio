@@ -8,7 +8,8 @@ accounts or text to read: open it and follow the orb.
 Modes (bottom dock): **Flow** (the orb pours sand or water as you breathe
 out; wake buried stars), **Sand** (pour and rake a mandala), **Water**
 (ripples and floating lights) and **Breathe** (just the orb, works with
-eyes closed through sound and vibration).
+eyes closed through sound and vibration). The film icon (top right) plays a
+30-second demo video with Hebrew narration (`media/`, cached for offline after the first play).
 
 ## Run locally
 

@@ -21,6 +21,8 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 
 - [x] Explainer video: promo/solio-explainer.mp4 (29 s, 1080x1920, Hebrew male voice + captions; narration by ElevenLabs "Amit")
 
+- [x] Demo video button (film icon, top right) plays media/solio-explainer.mp4 (720p, cached on first play); end card held longer, URL removed
+
 ## Current Focus
 All 7 steps done and live on main (GitHub Pages). Next: Ron tests on his phone (install icon, airplane mode, vibration, tilt, sound, help sheet).
 Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch (github.io blocked by proxy).

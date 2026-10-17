@@ -1,4 +1,4 @@
-// Icons, dock, top bar, scene dots and idle fading.
+// Icons, dock, top bar, scene dots, idle fading and the demo video.
 
 const svg = (body) => `<svg viewBox="0 0 24 24" aria-hidden="true">${body}</svg>`;
 
@@ -12,6 +12,9 @@ export const ICONS = {
   soundOff: svg('<path d="M4 9.5h3l4.5-4v13L7 14.5H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/>'),
   vibOn: svg('<rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4.8 9v6M19.2 9v6M2 10.8v2.4M22 10.8v2.4"/>'),
   vibOff: svg('<rect x="8" y="4" width="8" height="16" rx="2"/><path d="M3.5 3.5l17 17"/>'),
+  demo: svg('<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.2 9.4v5.2l4.4-2.6z"/>'),
+  close: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
+  offline: svg('<path d="M3 3l18 18"/><path d="M8.5 8.6A6.5 6.5 0 0 0 7 12.5a4.5 4.5 0 0 0 .5 9h9.3M12.3 6.6a6.5 6.5 0 0 1 6 5.4 4 4 0 0 1 2.2 6.9"/>'),
   install: svg('<circle cx="12" cy="12" r="9"/><path d="M12 7.5v8M8.5 12.5l3.5 3.5 3.5-3.5"/>'),
   pace: [
     svg('<path d="M2.5 12c1.2-2.6 2.4-2.6 3.6 0s2.4 2.6 3.6 0 2.4-2.6 3.6 0 2.4 2.6 3.6 0 2.4-2.6 3.6 0"/>'),
@@ -33,10 +36,15 @@ export class UI {
       wave: document.getElementById('btn-wave'),
       install: document.getElementById('btn-install'),
       sound: document.getElementById('btn-sound'),
-      vib: document.getElementById('btn-vib')
+      vib: document.getElementById('btn-vib'),
+      demo: document.getElementById('btn-demo')
     };
     this.dim = document.getElementById('dim');
     this.ghost = document.getElementById('ghost');
+    this.demo = document.getElementById('demo');
+    this.video = document.getElementById('demo-video');
+    this.offline = document.getElementById('demo-offline');
+    this.demoClose = document.getElementById('demo-close');
     this.lastActive = performance.now();
     this.state = '';
     this.dimmed = false;
@@ -48,6 +56,15 @@ export class UI {
     }
     this.btn.install.innerHTML = ICONS.install;
     this.btn.wave.innerHTML = ICONS.wave;
+    this.btn.demo.innerHTML = ICONS.demo;
+    this.demoClose.innerHTML = ICONS.close;
+    this.offline.innerHTML = ICONS.offline;
+    this.btn.demo.addEventListener('click', () => this.openDemo());
+    this.demoClose.addEventListener('click', () => this.closeDemo());
+    this.demo.addEventListener('click', (e) => { if (e.target === this.demo) this.closeDemo(); });
+    this.video.addEventListener('ended', () => this.closeDemo());
+    this.video.addEventListener('error', () => { this.offline.hidden = false; });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.closeDemo(); });
     this.btn.pace.addEventListener('click', () => this.h.pace());
     this.btn.wave.addEventListener('click', () => this.h.wave());
     this.btn.install.addEventListener('click', () => this.h.install());
@@ -115,6 +132,7 @@ export class UI {
 
   // Called a few times per second from the main loop.
   update(now, playing) {
+    if (this.demoOpen) return;
     const idle = now - this.lastActive;
     if (this.mode === 'breathe') {
       if (idle > 30000) {
@@ -135,4 +153,27 @@ export class UI {
   }
 
   hideGhost() { this.ghost.classList.remove('play'); }
+
+  get demoOpen() { return !this.demo.hidden; }
+
+  openDemo() {
+    if (this.demoOpen) return;
+    this.wake();
+    this.offline.hidden = true;
+    if (!this.video.getAttribute('src')) this.video.src = './media/solio-explainer.mp4';
+    this.demo.hidden = false;
+    this.h.demo(true);
+    this.demoClose.focus({ preventScroll: true });
+    const p = this.video.play();
+    if (p && p.catch) p.catch(() => {});
+  }
+
+  closeDemo() {
+    if (!this.demoOpen) return;
+    this.video.pause();
+    this.demo.hidden = true;
+    this.h.demo(false);
+    this.btn.demo.focus({ preventScroll: true });
+    this.wake();
+  }
 }

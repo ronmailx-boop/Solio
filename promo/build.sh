@@ -2,7 +2,7 @@
 # Mixes narration + soft pad and encodes the 1080x1920 explainer.
 # Usage: sh promo/build.sh <frames-dir> <out.mp4>   (run from promo/)
 set -e
-FR="$1"; OUT="${2:-solio-explainer.mp4}"; T=29
+FR="$1"; OUT="${2:-solio-explainer.mp4}"; T=30
 D0=$(python3 -c "import json;print(','.join(str(int(l['start']*1000)) for l in json.load(open('timeline.json'))['lines']))")
 D4=$(echo "$D0" | cut -d, -f5)
 set -- $(echo "$D0" | cut -d, -f1-4 | tr ',' ' ') "$FR" "$OUT"
@@ -19,4 +19,4 @@ ffmpeg -v error -y -framerate 30 -i "$5/f%04d.png" \
     [pad][wash]amix=inputs=2:normalize=0,aresample=48000,afade=t=in:d=2,afade=t=out:st=$((T-3)):d=3[bed];
     [voice][bed]amix=inputs=2:normalize=0,alimiter=limit=0.89,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[a]" \
   -map 0:v -map "[a]" -t $T -c:v libx264 -preset slow -crf 17 -pix_fmt yuv420p -r 30 \
-  -vf "fade=t=in:d=0.6,fade=t=out:st=$((T-1)):d=1" -c:a aac -b:a 192k -ar 48000 -movflags +faststart "$6"
+  -vf "fade=t=in:d=0.6,fade=t=out:st=$((T-1)).2:d=0.8" -c:a aac -b:a 192k -ar 48000 -movflags +faststart "$6"

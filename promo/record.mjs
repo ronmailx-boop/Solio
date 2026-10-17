@@ -41,7 +41,6 @@ const OVERLAY_CSS = `
   #brand { position: fixed; left: 0; right: 0; bottom: 104px; text-align: center; opacity: 0;
     font: 300 46px/1.2 "DejaVu Sans", sans-serif; letter-spacing: .12em; color: #e6ddff;
     text-shadow: 0 0 24px rgba(115,103,240,.8); pointer-events: none; }
-  #brand small { display: block; font-size: 17px; letter-spacing: .04em; margin-top: 10px; opacity: .8; }
 `;
 
 const browser = await chromium.launch();
@@ -54,7 +53,7 @@ await page.goto(URL_);
 await page.waitForFunction(() => typeof window.__advance === 'function');
 await page.addStyleTag({ content: OVERLAY_CSS });
 await page.evaluate(() => {
-  document.body.insertAdjacentHTML('beforeend', '<div id="cap"></div><div id="touch"></div><div id="brand">Solio<small>solio.vplusstudio.app</small></div>');
+  document.body.insertAdjacentHTML('beforeend', '<div id="cap"></div><div id="touch"></div><div id="brand">Solio</div>');
 });
 
 const adv = (ms) => page.evaluate((m) => window.__advance(m), ms);
@@ -153,7 +152,7 @@ for (let f = 0; f < frames; f++) {
   if (t >= 22.0 && modeNow === 'water') await setMode('breathe');
 
   const cap = capAt(t);
-  const brand = t > 27.6 ? Math.min(1, (t - 27.6) / 0.6) : 0;
+  const brand = t > 27.3 ? Math.min(1, (t - 27.3) / 0.6) : 0;
   await page.evaluate(([text, a, br, same]) => {
     const c = document.getElementById('cap');
     if (!same) c.innerHTML = text ? `<span>${text}</span>` : '';

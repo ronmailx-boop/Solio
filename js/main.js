@@ -133,7 +133,18 @@ const ui = new UI({
     if (store.vib) issuePhase();
     save();
   },
-  scene: (i) => { if (mode.setScene) mode.setScene(i); }
+  scene: (i) => { if (mode.setScene) mode.setScene(i); },
+  // The demo video has its own sound: quiet the app's audio and vibration meanwhile.
+  demo: (open) => {
+    if (open) {
+      app.haptics.setEnabled(false);
+      app.audio.suspend();
+    } else {
+      app.haptics.setEnabled(store.vib);
+      issuePhase();
+      if (!document.hidden) app.audio.wake();
+    }
+  }
 });
 app.ui = ui;
 ui.setPace(store.pace);
@@ -353,7 +364,7 @@ document.addEventListener('visibilitychange', () => {
     paused = false;
     last = performance.now();
     issuePhase();
-    app.audio.wake();
+    if (!ui.demoOpen) app.audio.wake();
     requestWakeLock();
     requestAnimationFrame(frame);
   }

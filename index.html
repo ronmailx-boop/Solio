@@ -30,6 +30,7 @@
     <button class="icon" id="btn-install" type="button" aria-label="Install" hidden></button>
     <button class="icon" id="btn-sound" type="button" aria-label="Sound"></button>
     <button class="icon" id="btn-vib" type="button" aria-label="Vibration"></button>
+    <button class="icon" id="btn-demo" type="button" aria-label="Demo video"></button>
   </div>
   <div class="bottom">
     <div id="scenes"></div>
@@ -42,6 +43,11 @@
   </div>
 </div>
 <div id="ghost" aria-hidden="true"></div>
+<div id="demo" role="dialog" aria-modal="true" aria-label="Demo video" hidden>
+  <video id="demo-video" playsinline controls preload="none" poster="./media/solio-explainer.jpg"></video>
+  <div id="demo-offline" hidden></div>
+  <button class="icon" id="demo-close" type="button" aria-label="Close"></button>
+</div>
 <script type="module" src="./js/main.js"></script>
 </body>
 </html>
