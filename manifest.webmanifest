@@ -1,0 +1,30 @@
+{
+  "name": "Solio",
+  "short_name": "Solio",
+  "description": "Breathe with a glowing orb, play with sand and water.",
+  "id": "./",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone"],
+  "orientation": "portrait",
+  "background_color": "#0b0a1a",
+  "theme_color": "#0b0a1a",
+  "categories": ["health", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icons/icon-monochrome-512.png", "sizes": "512x512", "type": "image/png", "purpose": "monochrome" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Breathe",
+      "short_name": "Breathe",
+      "url": "./?mode=breathe",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

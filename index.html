@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0a1a">
+<meta name="description" content="Breathe with a glowing orb, play with sand and water.">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Solio">
+<title>Solio</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon-180.png">
+<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<canvas id="stage"></canvas>
+<div id="dim"></div>
+<div id="ui">
+  <div class="bar top-left">
+    <button class="icon" id="btn-pace" type="button" aria-label="Breath pace"></button>
+    <button class="icon" id="btn-wave" type="button" aria-label="Clear" hidden></button>
+  </div>
+  <div class="bar top-right">
+    <button class="icon" id="btn-install" type="button" aria-label="Install" hidden></button>
+    <button class="icon" id="btn-sound" type="button" aria-label="Sound"></button>
+    <button class="icon" id="btn-vib" type="button" aria-label="Vibration"></button>
+    <button class="icon" id="btn-help" type="button" aria-label="Support"></button>
+  </div>
+  <div class="bottom">
+    <div id="scenes"></div>
+    <nav id="dock">
+      <button class="mode" type="button" data-mode="flow" aria-label="Flow"></button>
+      <button class="mode" type="button" data-mode="sand" aria-label="Sand"></button>
+      <button class="mode" type="button" data-mode="water" aria-label="Water"></button>
+      <button class="mode" type="button" data-mode="breathe" aria-label="Breathe"></button>
+    </nav>
+  </div>
+</div>
+<div id="ghost" aria-hidden="true"></div>
+<div id="sheet-backdrop" hidden>
+  <div id="sheet" role="dialog" aria-modal="true" aria-label="Support"></div>
+</div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
