@@ -12,8 +12,8 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 - [x] 7. my-site integration (automatic: my-site lists public repos and reads the icon from the live Pages manifest; no change needed)
 
 ## Cloudflare
-- [x] wrangler.jsonc (name `solio`, route solio.vplusstudio.app, workers_dev true), .assetsignore, deploy workflow
-- [x] Secret CLOUDFLARE_API_TOKEN added; deployed 2026-10-17 (log: solio.ronmailx.workers.dev + solio.vplusstudio.app custom domain)
+- [x] wrangler.jsonc (name `solio`, route solio.vplusstudio.app, workers_dev false since 2026-10-17: only the custom domain), .assetsignore, deploy workflow
+- [x] Secret CLOUDFLARE_API_TOKEN added; deployed 2026-10-17 (workers.dev URL later disabled; log shows only the custom domain)
 - [x] my-site CUSTOM_URLS: `Solio: 'https://solio.vplusstudio.app/'` (key matches repo name casing)
 - GitHub Pages stays on in parallel.
 
