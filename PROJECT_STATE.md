@@ -13,8 +13,8 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 
 ## Cloudflare
 - [x] wrangler.jsonc (name `solio`, route solio.vplusstudio.app, workers_dev true), .assetsignore, deploy workflow
-- [ ] Ron adds repo secret CLOUDFLARE_API_TOKEN (token `solio-deploy`, zone vplusstudio.app), then re-run "Deploy to Cloudflare"
-- [ ] After it is live: add `solio: 'https://solio.vplusstudio.app/'` to CUSTOM_URLS in my-site/app.js
+- [x] Secret CLOUDFLARE_API_TOKEN added; deployed 2026-10-17 (log: solio.ronmailx.workers.dev + solio.vplusstudio.app custom domain)
+- [x] my-site CUSTOM_URLS: `Solio: 'https://solio.vplusstudio.app/'` (key matches repo name casing)
 - GitHub Pages stays on in parallel.
 
 ## Current Focus
