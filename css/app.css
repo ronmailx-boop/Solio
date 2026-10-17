@@ -190,64 +190,6 @@ button svg {
 }
 @keyframes fade-in { to { opacity: 1; } }
 
-#sheet-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 4, 14, 0.55);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  animation: fade-in 0.4s ease;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-#sheet-backdrop[hidden] { display: none; }
-
-#sheet {
-  width: 100%;
-  max-width: 480px;
-  background: #17143a;
-  border-radius: 22px 22px 0 0;
-  padding: 14px 18px calc(var(--safe-b) + 22px);
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
-  user-select: text;
-  -webkit-user-select: text;
-  touch-action: pan-y;
-}
-#sheet .grab {
-  width: 40px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(230, 221, 255, 0.25);
-  margin: 0 auto 14px;
-}
-#sheet .heart {
-  display: flex;
-  justify-content: center;
-  color: #cbbcff;
-  margin-bottom: 8px;
-}
-#sheet .heart svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-#sheet ul { list-style: none; margin: 0; padding: 0; }
-#sheet li + li { margin-top: 8px; }
-#sheet a {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-height: 56px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: rgba(115, 103, 240, 0.12);
-  color: var(--ink);
-  text-decoration: none;
-}
-#sheet a:active { background: rgba(115, 103, 240, 0.25); }
-#sheet a svg { flex: none; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; opacity: 0.8; }
-#sheet .who { flex: 1; min-width: 0; font-size: 14px; opacity: 0.75; }
-#sheet .who b { display: block; font-weight: 500; font-size: 15px; opacity: 1; }
-#sheet .num { font-size: 20px; font-weight: 600; letter-spacing: 0.02em; direction: ltr; unicode-bidi: isolate; }
-#sheet .web { background: rgba(230, 221, 255, 0.06); font-size: 15px; }
-
 @media (prefers-reduced-motion: reduce) {
   #ui, #dim, .mode, .icon { transition-duration: 0.01s; }
   #ghost.play { animation: none; }

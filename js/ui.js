@@ -1,4 +1,4 @@
-// Icons, dock, top bar, scene dots, idle fading and the help sheet.
+// Icons, dock, top bar, scene dots and idle fading.
 
 const svg = (body) => `<svg viewBox="0 0 24 24" aria-hidden="true">${body}</svg>`;
 
@@ -13,64 +13,14 @@ export const ICONS = {
   vibOn: svg('<rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4.8 9v6M19.2 9v6M2 10.8v2.4M22 10.8v2.4"/>'),
   vibOff: svg('<rect x="8" y="4" width="8" height="16" rx="2"/><path d="M3.5 3.5l17 17"/>'),
   install: svg('<circle cx="12" cy="12" r="9"/><path d="M12 7.5v8M8.5 12.5l3.5 3.5 3.5-3.5"/>'),
-  heart: svg('<path d="M12 20s-7.5-4.5-7.5-10.2A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.6C19.5 15.5 12 20 12 20z"/>'),
   pace: [
     svg('<path d="M2.5 12c1.2-2.6 2.4-2.6 3.6 0s2.4 2.6 3.6 0 2.4-2.6 3.6 0 2.4 2.6 3.6 0 2.4-2.6 3.6 0"/>'),
     svg('<path d="M3 12c1.5-3.4 3-3.4 4.5 0s3 3.4 4.5 0 3-3.4 4.5 0 3 3.4 4.5 0"/>'),
     svg('<path d="M3 12c2.25-4.4 4.5-4.4 6.75 0s4.5 4.4 6.75 0"/><path d="M16.5 12c1.5-2.9 3-3 4.5-1.6"/>')
   ],
   wave: svg('<path d="M2 15.5c2.5 0 3.5-2 6-2s3.5 2 6 2 3.5-2 6-2"/><path d="M2 19.5c2.5 0 3.5-2 6-2s3.5 2 6 2 3.5-2 6-2"/><path d="M7.5 10.5C7.5 7 10 4.5 13.5 4.5c1.6 0 2.8.5 3.8 1.4-2.2.1-3.6 1.6-3.6 3.6"/>'),
-  phone: svg('<path d="M5 4h3.5l2 5-2.5 1.5a11 11 0 0 0 5.5 5.5l1.5-2.5 5 2v3.5a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>'),
-  globe: svg('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/>'),
   hand: svg('<path d="M9 12V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V11m0 0a1.5 1.5 0 0 1 3 0v4a6.5 6.5 0 0 1-6.5 6.5h-1.3a6 6 0 0 1-4.9-2.6L4.4 15a1.5 1.5 0 0 1 2.4-1.8L9 15.5"/>')
 };
-
-// Support lines. Every number was verified with a web search on 2026-10-17:
-// ERAN 1201 (Israel), 988 Suicide & Crisis Lifeline (US) / 988 Suicide Crisis
-// Helpline (Canada, live since 2023-11-30), Samaritans 116 123 (UK and Ireland),
-// Lifeline 13 11 14 (Australia).
-const LINES = [
-  { regions: ['IL'], name: 'ERAN', num: '1201', tel: '1201' },
-  { regions: ['US'], name: 'Suicide & Crisis Lifeline', num: '988', tel: '988' },
-  { regions: ['CA'], name: 'Suicide Crisis Helpline', num: '988', tel: '988' },
-  { regions: ['GB', 'IE'], name: 'Samaritans', num: '116 123', tel: '116123' },
-  { regions: ['AU'], name: 'Lifeline', num: '13 11 14', tel: '131114' }
-];
-
-const TZ_REGION = [
-  [/^Asia\/(Jerusalem|Tel_Aviv)$/, 'IL'],
-  [/^Europe\/London$/, 'GB'],
-  [/^Europe\/Belfast$/, 'GB'],
-  [/^Europe\/Dublin$/, 'IE'],
-  [/^Australia\//, 'AU'],
-  [/^America\/(Toronto|Vancouver|Edmonton|Winnipeg|Halifax|St_Johns|Regina|Montreal|Moncton|Whitehorse|Yellowknife|Iqaluit)$/, 'CA'],
-  [/^(America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Detroit|Boise|Indiana|Kentucky|North_Dakota|Juneau|Sitka|Nome|Adak|Menominee)|Pacific\/Honolulu|US\/)/, 'US']
-];
-
-function detectRegions() {
-  const found = [];
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    for (const [re, r] of TZ_REGION) if (re.test(tz)) { found.push(r); break; }
-  } catch (e) { /* ignore */ }
-  try {
-    for (const tag of navigator.languages || [navigator.language]) {
-      const m = /[-_]([A-Za-z]{2})\b/.exec(tag || '');
-      if (m) { const r = m[1].toUpperCase(); if (!found.includes(r)) found.push(r); }
-    }
-  } catch (e) { /* ignore */ }
-  return found;
-}
-
-function regionName(code) {
-  try {
-    return new Intl.DisplayNames([navigator.language || 'en'], { type: 'region' }).of(code) || code;
-  } catch (e) {
-    return code;
-  }
-}
-
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class UI {
   constructor(handlers) {
@@ -83,12 +33,9 @@ export class UI {
       wave: document.getElementById('btn-wave'),
       install: document.getElementById('btn-install'),
       sound: document.getElementById('btn-sound'),
-      vib: document.getElementById('btn-vib'),
-      help: document.getElementById('btn-help')
+      vib: document.getElementById('btn-vib')
     };
     this.dim = document.getElementById('dim');
-    this.backdrop = document.getElementById('sheet-backdrop');
-    this.sheet = document.getElementById('sheet');
     this.ghost = document.getElementById('ghost');
     this.lastActive = performance.now();
     this.state = '';
@@ -100,16 +47,12 @@ export class UI {
       b.addEventListener('click', () => this.h.mode(b.dataset.mode));
     }
     this.btn.install.innerHTML = ICONS.install;
-    this.btn.help.innerHTML = ICONS.heart;
     this.btn.wave.innerHTML = ICONS.wave;
     this.btn.pace.addEventListener('click', () => this.h.pace());
     this.btn.wave.addEventListener('click', () => this.h.wave());
     this.btn.install.addEventListener('click', () => this.h.install());
     this.btn.sound.addEventListener('click', () => this.h.sound());
     this.btn.vib.addEventListener('click', () => this.h.vibration());
-    this.btn.help.addEventListener('click', () => this.openSheet());
-    this.backdrop.addEventListener('click', (e) => { if (e.target === this.backdrop) this.closeSheet(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.closeSheet(); });
     this.scenesEl.addEventListener('click', (e) => {
       const b = e.target.closest('button');
       if (b) this.h.scene(Number(b.dataset.i));
@@ -172,7 +115,6 @@ export class UI {
 
   // Called a few times per second from the main loop.
   update(now, playing) {
-    if (this.backdrop.hidden === false) return;
     const idle = now - this.lastActive;
     if (this.mode === 'breathe') {
       if (idle > 30000) {
@@ -193,31 +135,4 @@ export class UI {
   }
 
   hideGhost() { this.ghost.classList.remove('play'); }
-
-  openSheet() {
-    const regions = detectRegions();
-    const lines = [];
-    for (const r of regions) {
-      for (const l of LINES) if (l.regions.includes(r) && !lines.some((x) => x.l === l)) lines.push({ l, r });
-    }
-    let html = `<div class="grab"></div><div class="heart">${ICONS.heart}</div><ul>`;
-    for (const { l, r } of lines) {
-      html += `<li><a href="tel:${esc(l.tel)}">${ICONS.phone}<span class="who"><b>${esc(regionName(r))}</b>${esc(l.name)}</span><span class="num">${esc(l.num)}</span></a></li>`;
-    }
-    html += `<li><a class="web" href="https://findahelpline.com" target="_blank" rel="noopener">${ICONS.globe}<span class="who">findahelpline.com</span></a></li></ul>`;
-    this.sheet.innerHTML = html;
-    this.backdrop.hidden = false;
-    this.wake();
-    const first = this.sheet.querySelector('a');
-    if (first) first.focus({ preventScroll: true });
-  }
-
-  closeSheet() {
-    if (this.backdrop.hidden) return;
-    this.backdrop.hidden = true;
-    this.btn.help.focus({ preventScroll: true });
-    this.wake();
-  }
-
-  get sheetOpen() { return !this.backdrop.hidden; }
 }
