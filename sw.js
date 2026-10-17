@@ -1,6 +1,6 @@
 // Solio service worker: precache everything, cache-first for assets,
 // network-first for the page. Bump VERSION on every release.
-const VERSION = 'solio-v5';
+const VERSION = 'solio-v6';
 // The demo video is cached on first play (not precached) in its own cache,
 // which survives app updates. Bump MEDIA when the video changes.
 const MEDIA = 'solio-media-1';

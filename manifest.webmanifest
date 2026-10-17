@@ -1,7 +1,7 @@
 {
   "name": "Solio",
   "short_name": "Solio",
-  "description": "Breathe with a glowing orb, play with sand and water.",
+  "description": "נושמים עם כדור אור ומשחקים בחול ובמים. רגע של שקט, בלי מילים ובלי טיימר.",
   "id": "./",
   "start_url": "./?source=pwa",
   "scope": "./",

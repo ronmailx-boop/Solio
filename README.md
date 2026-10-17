@@ -1,5 +1,7 @@
 # Solio
 
+משחק רגיעה בלי מילים: כדור אור נושם בקצב איטי ונעים, ואתם משחקים בחול, במים ובאור שמגיבים למגע. בלי ניקוד, בלי טיימר ובלי הרשמה, פשוט פותחים ונושמים עם הכדור.
+
 Solio is a language-free calm-down game. A glowing orb breathes at a slow,
 gentle pace (longer out-breath than in-breath) and you play with sand,
 water and light that answer your touch. There are no scores, timers,
