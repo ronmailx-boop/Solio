@@ -26,6 +26,9 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 - [x] Hebrew description: README first paragraph (apps directory) + og: tags and manifest (WhatsApp previews)
 
 ## Current Focus
-All 7 steps done and live on main (GitHub Pages). Next: Ron tests on his phone (install icon, airplane mode, vibration, tilt, sound, help sheet).
-Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch (github.io blocked by proxy).
-Phase 2 ideas (not built): sleep fade-out, more scenes, local calm check, TWA wrapper, solio.vplusstudio.app.
+**Stopped here (2026-10-17):** Solio is live at https://solio.vplusstudio.app (Cloudflare, workers.dev off) and on GitHub Pages. Done today: all 7 build steps, Cloudflare deploy, help sheet removed, Hebrew explainer video (ElevenLabs "Amit", 30 s, `promo/`) + in-app demo button (720p in `media/`), Hebrew description (README for the apps directory, og: tags for WhatsApp previews, with the app icon). Ron confirmed the directory link, the description and the video work.
+
+**Next step:** Ron tests on his phone: install from solio.vplusstudio.app, airplane mode, vibration follows the breath, tilt moves the sand, sound starts on first touch, demo button plays the video (with sound, and offline after the first play). Fix whatever he reports.
+Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch.
+Open option: turn off GitHub Pages (only if Ron asks; Repo → Settings → Pages).
+Phase 2 ideas (not built): sleep fade-out, more scenes, local calm check, TWA wrapper.
