@@ -8,7 +8,7 @@ const TAU = Math.PI * 2;
 export class Orb {
   constructor() {
     this.core = radialSprite(256, [
-      [0, '#f6f2ff'], [0.22, '#e2d9ff'], [0.55, '#bcaeff'], [0.82, 'rgba(115,103,240,0.92)'], [1, 'rgba(115,103,240,0)']
+      [0, '#e9e3ff'], [0.25, '#d2c6ff'], [0.58, '#a596ff'], [0.84, 'rgba(115,103,240,0.9)'], [1, 'rgba(115,103,240,0)']
     ]);
     this.halo = radialSprite(256, [
       [0, 'rgba(203,188,255,0.55)'], [0.35, 'rgba(140,124,255,0.22)'], [0.7, 'rgba(115,103,240,0.07)'], [1, 'rgba(115,103,240,0)']

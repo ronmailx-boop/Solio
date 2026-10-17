@@ -21,7 +21,7 @@ export const SCENES = [
     sky: ['#090a1c', '#121633'],
     strata: rgb(['#9aa6c8', '#8d98bf', '#a3a9cc', '#b3b6d6', '#9fa9cf', '#8b94bd', '#a6b0d4', '#c0c4e0']),
     water: hexToRgb('#6f8fd8'),
-    waterHi: hexToRgb('#e4ebff'),
+    waterHi: hexToRgb('#b9c7ee'),
     groove: hexToRgb('#f0f4ff'),
     grain: '#cfdcff',
     moon: true,

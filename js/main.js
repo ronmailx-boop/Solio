@@ -9,6 +9,7 @@ import { BreatheMode } from './breathe.js';
 import { FlowMode } from './flow.js';
 import { SandMode } from './sand.js';
 import { WaterMode } from './water.js';
+import { AudioEngine } from './audio.js';
 
 const KEY = 'solio.v1';
 const DEFAULTS = { sound: true, vib: true, pace: 1, mode: 'flow', unlocked: 1, active: 0, scene: 0, ghost: false };
@@ -43,7 +44,7 @@ const app = {
   haptics: new Haptics(store.vib),
   orb: new Orb(),
   particles: new Particles(),
-  audio: null,
+  audio: new AudioEngine(),
   c: 0.25,          // coherence
   gentle: 0.7,      // smoothed finger gentleness
   wind: 0,          // tilt bias, -1..1
@@ -352,7 +353,7 @@ document.addEventListener('visibilitychange', () => {
     paused = false;
     last = performance.now();
     issuePhase();
-    if (app.audio && gestured) app.audio.resume();
+    app.audio.wake();
     requestWakeLock();
     requestAnimationFrame(frame);
   }
@@ -425,7 +426,7 @@ function frame(now) {
     if (ghostT > 2.5 && app.lastTouch === 0) {
       store.ghost = true;
       save();
-      ui.playGhost(app.orbX, app.orbY);
+      ui.playGhost(app.orbX + app.orb.r * 0.2, app.orbY + app.orb.r * 0.75);
     }
   }
 }

@@ -31,7 +31,8 @@ export const ICONS = {
 // Lifeline 13 11 14 (Australia).
 const LINES = [
   { regions: ['IL'], name: 'ERAN', num: '1201', tel: '1201' },
-  { regions: ['US', 'CA'], name: '988', num: '988', tel: '988' },
+  { regions: ['US'], name: 'Suicide & Crisis Lifeline', num: '988', tel: '988' },
+  { regions: ['CA'], name: 'Suicide Crisis Helpline', num: '988', tel: '988' },
   { regions: ['GB', 'IE'], name: 'Samaritans', num: '116 123', tel: '116123' },
   { regions: ['AU'], name: 'Lifeline', num: '13 11 14', tel: '131114' }
 ];

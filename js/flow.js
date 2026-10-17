@@ -116,11 +116,11 @@ export class FlowMode {
     guard = 0;
     while (pts.length < stars.length && guard++ < 3000) {
       const tx = 0.08 + Math.random() * 0.84;
-      const ty = 0.05 + Math.random() * 0.17;
-      if (pts.some((p) => Math.hypot(p[0] - tx, (p[1] - ty) * 2.2) < 0.13)) continue;
+      const ty = 0.05 + Math.random() * 0.1;
+      if (pts.some((p) => Math.hypot(p[0] - tx, (p[1] - ty) * 2.2) < 0.11)) continue;
       pts.push([tx, ty]);
     }
-    while (pts.length < stars.length) pts.push([Math.random(), 0.05 + Math.random() * 0.17]);
+    while (pts.length < stars.length) pts.push([Math.random(), 0.05 + Math.random() * 0.1]);
     // Order targets left to right so the constellation reads as one line.
     pts.sort((p, q) => p[0] - q[0]);
     stars.forEach((s, i) => { s.tx = pts[i][0]; s.ty = pts[i][1]; });
@@ -173,7 +173,7 @@ export class FlowMode {
 
   orbPos() {
     const a = this.app;
-    return [a.w / 2, a.h * (a.w > a.h ? 0.32 : 0.29)];
+    return [a.w / 2, a.h * (a.w > a.h ? 0.34 : 0.32)];
   }
 
   step() {
@@ -449,7 +449,7 @@ export class FlowMode {
       ctx.globalCompositeOperation = 'source-over';
     }
 
-    a.orb.draw(ctx, ox, oy, a.minDim, a.breath.b, a.c, 1, 1, a.breath.b, d.grain, a.reduced);
+    a.orb.draw(ctx, ox, oy, a.minDim, a.breath.b, a.c, 0.85, 1, a.breath.b, d.grain, a.reduced);
     a.particles.draw(ctx);
   }
 

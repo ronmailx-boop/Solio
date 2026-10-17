@@ -77,7 +77,7 @@ export class Sim {
       }
     }
     const h = pal.waterHi;
-    this.waterTop = pack(h[0], h[1], h[2], 220);
+    this.waterTop = pack(h[0], h[1], h[2], 170);
   }
 
   add(x, y, kind, stratum) {
