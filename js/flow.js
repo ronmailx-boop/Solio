@@ -402,7 +402,7 @@ export class FlowMode {
 
     // Terrain
     this.sim.render();
-    this.sim.draw(ctx, w, h, 0.18 + 0.14 * a.c);
+    this.sim.draw(ctx, w, h, 0.12 + 0.12 * a.c);
     if (this.fish) this.drawFish(ctx);
     if (this.sim.wave && this.sim.wave.front != null) {
       const fx = this.sim.wave.front * w;

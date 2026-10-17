@@ -59,7 +59,7 @@ export class Sim {
     const pack = (r, g, b, a) => ((a << 24) | (b << 16) | (g << 8) | r) >>> 0;
     const cl = (v) => (v < 0 ? 0 : v > 255 ? 255 : v | 0);
     for (let band = 0; band < BANDS; band++) {
-      const shade = 1.06 - 0.16 * band / (BANDS - 1);
+      const shade = 0.86 - 0.18 * band / (BANDS - 1);
       for (let s = 0; s < STRATA; s++) {
         const c = pal.strata[s % pal.strata.length];
         for (let t = 0; t < 16; t++) {

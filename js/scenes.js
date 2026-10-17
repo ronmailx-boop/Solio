@@ -58,5 +58,5 @@ export const SAND_PALETTE = {
   strata: rgb(['#e8c9a0', '#e2bd96', '#d6aa8c', '#c79b92', '#b994a8', '#c9a6b0', '#dcbb9e', '#ecd2ae']),
   water: hexToRgb('#6fb7ff'),
   waterHi: hexToRgb('#cfe6ff'),
-  groove: hexToRgb('#efe4ff')
+  groove: hexToRgb('#d8c8ff')
 };
