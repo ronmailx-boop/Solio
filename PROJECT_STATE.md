@@ -11,6 +11,12 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 - [x] 6. Audio, haptics, polish
 - [x] 7. my-site integration (automatic: my-site lists public repos and reads the icon from the live Pages manifest; no change needed)
 
+## Cloudflare
+- [x] wrangler.jsonc (name `solio`, route solio.vplusstudio.app, workers_dev true), .assetsignore, deploy workflow
+- [ ] Ron adds repo secret CLOUDFLARE_API_TOKEN (token `solio-deploy`, zone vplusstudio.app), then re-run "Deploy to Cloudflare"
+- [ ] After it is live: add `solio: 'https://solio.vplusstudio.app/'` to CUSTOM_URLS in my-site/app.js
+- GitHub Pages stays on in parallel.
+
 ## Current Focus
 All 7 steps done and live on main (GitHub Pages). Next: Ron tests on his phone (install icon, airplane mode, vibration, tilt, sound, help sheet).
 Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch (github.io blocked by proxy).

@@ -1,0 +1,8 @@
+// Cloudflare Workers: serves the app as static assets (no Worker script).
+{
+  "name": "solio",
+  "compatibility_date": "2026-10-17",
+  "assets": { "directory": "." },
+  "workers_dev": true,
+  "routes": [{ "pattern": "solio.vplusstudio.app", "custom_domain": true }]
+}

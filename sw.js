@@ -1,6 +1,6 @@
 // Solio service worker: precache everything, cache-first for assets,
 // network-first for the page. Bump VERSION on every release.
-const VERSION = 'solio-v2';
+const VERSION = 'solio-v3';
 const ASSETS = [
   './',
   './index.html',

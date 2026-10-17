@@ -23,7 +23,7 @@ served from any path or domain.
 
 ## Install
 
-Open https://ronmailx-boop.github.io/Solio/ in Chrome on Android and tap the
+Open https://solio.vplusstudio.app/ (also at https://ronmailx-boop.github.io/Solio/) in Chrome on Android and tap the
 install icon (top right), or use the browser menu → *Install app* /
 *Add to Home screen*. After the first load it works fully offline.
 Long-press the home-screen icon for a direct **Breathe** shortcut.
