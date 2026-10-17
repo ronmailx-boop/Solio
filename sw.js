@@ -17,6 +17,8 @@ const ASSETS = [
   './js/sim.js',
   './js/scenes.js',
   './js/flow.js',
+  './js/sand.js',
+  './js/water.js',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',

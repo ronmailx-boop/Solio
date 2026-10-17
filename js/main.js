@@ -7,6 +7,8 @@ import { Orb } from './orb.js';
 import { Particles } from './particles.js';
 import { BreatheMode } from './breathe.js';
 import { FlowMode } from './flow.js';
+import { SandMode } from './sand.js';
+import { WaterMode } from './water.js';
 
 const KEY = 'solio.v1';
 const DEFAULTS = { sound: true, vib: true, pace: 1, mode: 'flow', unlocked: 1, active: 0, scene: 0, ghost: false };
@@ -64,8 +66,8 @@ if (reducedQuery && reducedQuery.addEventListener) {
 // ---------- modes ----------
 const modes = {
   flow: new FlowMode(app),
-  sand: new BreatheMode(app),
-  water: new BreatheMode(app),
+  sand: new SandMode(app),
+  water: new WaterMode(app),
   breathe: new BreatheMode(app)
 };
 app.modes = modes;
@@ -86,6 +88,7 @@ function setMode(name) {
   // Stop haptics and re-issue the current phase so pulses stay in step.
   app.haptics.stop();
   issuePhase();
+  app.particles.clear();
   modeName = name;
   mode = modes[name];
   mode.enter();
@@ -395,6 +398,7 @@ function frame(now) {
   if (steps === 3) acc = 0;
 
   mode.update(dt, now);
+  app.particles.update(dt, app.w, app.h, app.wind);
   app.orb.update(dt, app.reduced);
   mode.render(ctx);
   if (app.audio) app.audio.update(dt, app);
