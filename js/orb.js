@@ -8,7 +8,7 @@ const TAU = Math.PI * 2;
 export class Orb {
   constructor() {
     this.core = radialSprite(256, [
-      [0, '#ffffff'], [0.3, '#ece6ff'], [0.62, '#cbbcff'], [0.86, 'rgba(115,103,240,0.9)'], [1, 'rgba(115,103,240,0)']
+      [0, '#f6f2ff'], [0.22, '#e2d9ff'], [0.55, '#bcaeff'], [0.82, 'rgba(115,103,240,0.92)'], [1, 'rgba(115,103,240,0)']
     ]);
     this.halo = radialSprite(256, [
       [0, 'rgba(203,188,255,0.55)'], [0.35, 'rgba(140,124,255,0.22)'], [0.7, 'rgba(115,103,240,0.07)'], [1, 'rgba(115,103,240,0)']
@@ -87,10 +87,11 @@ export class Orb {
     const lr = r * (0.55 + 0.25 * b);
     const sx = x + Math.cos(this.time * 0.7) * r * 0.12;
     const sy = y + Math.sin(this.time * 0.5) * r * 0.1 - r * 0.08;
-    ctx.globalAlpha = alpha * (0.15 + 0.4 * b) * (0.7 + 0.3 * c);
+    ctx.globalAlpha = alpha * (0.08 + 0.22 * b) * (0.7 + 0.3 * c);
     ctx.drawImage(this.light, sx - lr, sy - lr, lr * 2, lr * 2);
 
-    // Luminous grains filling the orb.
+    // Luminous grains filling the orb (normal blending, so they keep their color).
+    ctx.globalCompositeOperation = prev;
     if (fill > 0.01 && grainColor) {
       const spr = dotSprite(grainColor);
       const n = Math.floor(GRAINS * fill);
@@ -100,8 +101,8 @@ export class Orb {
         const gr = this.gr[i] * r;
         const gx = x + Math.cos(a) * gr;
         const gy = y + Math.sin(a) * gr * 0.9 + r * 0.08;
-        const s = r * (0.07 + 0.04 * this.gs[i]);
-        ctx.globalAlpha = alpha * 0.55 * (0.6 + 0.4 * Math.sin(this.time * 1.3 + i));
+        const s = r * (0.05 + 0.03 * this.gs[i]);
+        ctx.globalAlpha = alpha * 0.4 * (0.6 + 0.4 * Math.sin(this.time * 1.3 + i));
         ctx.drawImage(spr, gx - s, gy - s, s * 2, s * 2);
       }
     }

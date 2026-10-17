@@ -6,6 +6,7 @@ import { UI } from './ui.js';
 import { Orb } from './orb.js';
 import { Particles } from './particles.js';
 import { BreatheMode } from './breathe.js';
+import { FlowMode } from './flow.js';
 
 const KEY = 'solio.v1';
 const DEFAULTS = { sound: true, vib: true, pace: 1, mode: 'flow', unlocked: 1, active: 0, scene: 0, ghost: false };
@@ -62,7 +63,7 @@ if (reducedQuery && reducedQuery.addEventListener) {
 
 // ---------- modes ----------
 const modes = {
-  flow: new BreatheMode(app),
+  flow: new FlowMode(app),
   sand: new BreatheMode(app),
   water: new BreatheMode(app),
   breathe: new BreatheMode(app)

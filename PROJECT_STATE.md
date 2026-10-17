@@ -5,11 +5,11 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 ## Tasks
 - [x] 1. PWA shell + icon
 - [x] 2. Breath engine + BREATHE mode
-- [ ] 3. Simulation + FLOW mode
+- [x] 3. Simulation + FLOW mode
 - [ ] 4. SAND mode
 - [ ] 5. WATER mode
 - [ ] 6. Audio, haptics, polish
 - [ ] 7. my-site integration
 
 ## Current Focus
-Building step 3 (sim.js + flow.js).
+Building step 4 (SAND mode).
