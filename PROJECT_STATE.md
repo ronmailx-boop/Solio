@@ -17,6 +17,8 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 - [x] my-site CUSTOM_URLS: `Solio: 'https://solio.vplusstudio.app/'` (key matches repo name casing)
 - GitHub Pages stays on in parallel.
 
+- Help sheet (heart icon + support lines) removed at Ron's request, 2026-10-17.
+
 ## Current Focus
 All 7 steps done and live on main (GitHub Pages). Next: Ron tests on his phone (install icon, airplane mode, vibration, tilt, sound, help sheet).
 Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch (github.io blocked by proxy).
