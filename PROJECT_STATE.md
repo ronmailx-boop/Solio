@@ -19,6 +19,8 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 
 - Help sheet (heart icon + support lines) removed at Ron's request, 2026-10-17.
 
+- [x] Explainer video: promo/solio-explainer.mp4 (29 s, 1080x1920, Hebrew male voice + captions)
+
 ## Current Focus
 All 7 steps done and live on main (GitHub Pages). Next: Ron tests on his phone (install icon, airplane mode, vibration, tilt, sound, help sheet).
 Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch (github.io blocked by proxy).
