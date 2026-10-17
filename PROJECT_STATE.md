@@ -9,7 +9,9 @@ Build brief: language-free calm PWA (breathing orb, sand, water). Vanilla JS, no
 - [x] 4. SAND mode
 - [x] 5. WATER mode
 - [x] 6. Audio, haptics, polish
-- [ ] 7. my-site integration
+- [x] 7. my-site integration (automatic: my-site lists public repos and reads the icon from the live Pages manifest; no change needed)
 
 ## Current Focus
-Step 7: my-site integration.
+All 7 steps done and live on main (GitHub Pages). Next: Ron tests on his phone (install icon, airplane mode, vibration, tilt, sound, help sheet).
+Not verifiable from the cloud: real-device haptics/tilt/audio quality/60 fps, live URL fetch (github.io blocked by proxy).
+Phase 2 ideas (not built): sleep fade-out, more scenes, local calm check, TWA wrapper, solio.vplusstudio.app.
