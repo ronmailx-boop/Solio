@@ -1,34 +1,35 @@
 {
  "total": 29.0,
+ "voice": "ElevenLabs eleven_v4, Amit (uwHajH4FhtzVp6X17pr7)",
  "lines": [
   {
    "text": "זה סוליו. מקום שקט, לנשום ולהירגע.",
-   "start": 0.8,
-   "end": 5.868,
+   "start": 0.6,
+   "end": 5.134,
    "file": "audio/trim0.wav"
   },
   {
    "text": "נושמים עם הכדור. שואפים כשהוא גדל, ונושפים כשהוא קטן.",
-   "start": 6.568,
-   "end": 11.316,
+   "start": 6.032,
+   "end": 10.938,
    "file": "audio/trim1.wav"
   },
   {
    "text": "בנשיפה, החול זורם. הזיזו אצבע לאט, והוא ילך אחריכם.",
-   "start": 12.016,
-   "end": 17.148,
+   "start": 11.774,
+   "end": 16.753,
    "file": "audio/trim2.wav"
   },
   {
    "text": "בחול מציירים מנדלה, ובמים יוצרים גלים רכים.",
-   "start": 17.848,
-   "end": 21.36,
+   "start": 17.533,
+   "end": 21.681,
    "file": "audio/trim3.wav"
   },
   {
    "text": "בלי ניקוד, ובלי טיימר. רק אתם, והנשימה.",
-   "start": 22.06,
-   "end": 27.066,
+   "start": 22.373,
+   "end": 26.644,
    "file": "audio/trim4.wav"
   }
  ]

@@ -1,7 +1,8 @@
 # Solio explainer video
 
 `solio-explainer.mp4`: 29 s, 1080x1920 (FHD portrait), 30 fps, Hebrew male narration
-(Google TTS `he-IL-Chirp3-HD-Algieba`), Hebrew captions, soft synthesized pad.
+(ElevenLabs `eleven_v4`, voice "Amit - Calm, Curious Narrator", one take sliced at its pauses;
+`tts.py` is the Google TTS alternative), Hebrew captions, soft synthesized pad.
 
 Rebuild (from this folder, with the app served at http://localhost:8080/Solio/):
 
